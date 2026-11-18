@@ -24,6 +24,8 @@ tags: [مشاوره, راهنمای تحصیلی, دانش‌آموز, برنا�
 ## ماژول‌ها
 - `student-intake.md`: شناخت دانش‌آموز و ارزیابی اولیه
 - `goal-setting-and-pathways.md`: هدف‌گذاری، تصمیم‌گیری و مسیر تحصیلی
+- `progress-review-and-follow-up.md`: پیگیری و بازتنظیم برنامه
+- `family-and-teacher-collaboration.md`: همکاری دانش‌آموز، خانواده و معلم
 - `robo-advising-protocol.md`: روش مکالمه و تصمیم‌گیری روبو
 
 ## اصول مشاوره
