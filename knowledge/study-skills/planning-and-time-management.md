@@ -11,9 +11,9 @@ source:
   publisher: Education Endowment Foundation
   license: original synthesis
 review:
-  status: reviewed
-  reviewed_at: 2026-11-18T00:00:00Z
-  reviewer: Robo-Knowledge editorial
+  status: draft
+  reviewed_at: null
+  reviewer: null
 tags: [برنامه‌ریزی, مدیریت زمان, اولویت‌بندی, پیگیری]
 ---
 
