@@ -11,9 +11,9 @@ source:
   publisher: Institute of Education Sciences
   license: original synthesis
 review:
-  status: reviewed
-  reviewed_at: 2026-11-18T00:00:00Z
-  reviewer: Robo-Knowledge editorial
+  status: draft
+  reviewed_at: null
+  reviewer: null
 tags: [آزمون, امتحان, تحلیل خطا, رفع اشکال]
 ---
 
