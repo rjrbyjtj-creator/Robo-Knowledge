@@ -11,9 +11,9 @@ source:
   publisher: What Works Clearinghouse, Institute of Education Sciences
   license: public guidance summary
 review:
-  status: reviewed
-  reviewed_at: 2026-11-18T00:00:00Z
-  reviewer: Robo-Knowledge editorial
+  status: draft
+  reviewed_at: null
+  reviewer: null
 tags: [یادگیری, حافظه, بازیابی فعال, مرور فاصله‌دار, تمرین ترکیبی]
 ---
 
