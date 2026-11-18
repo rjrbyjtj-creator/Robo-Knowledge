@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://robo-knowledge.example/schemas/textbook-page.schema.json",
+  "title": "Robo textbook page",
+  "type": "object",
+  "required": ["document_id", "book", "page", "blocks", "transcription"],
+  "properties": {
+    "document_id": { "type": "string", "minLength": 1 },
+    "book": {
+      "type": "object",
+      "required": ["title", "subject", "grade", "edition"],
+      "properties": {
+        "title": { "type": "string" },
+        "subject": { "type": "string" },
+        "grade": { "type": ["string", "null"] },
+        "field": { "type": ["string", "null"] },
+        "publisher": { "type": ["string", "null"] },
+        "edition": { "type": ["string", "null"] },
+        "publication_year": { "type": ["string", "null"] },
+        "isbn": { "type": ["string", "null"] },
+        "language": { "type": "string", "default": "fa" }
+      },
+      "additionalProperties": false
+    },
+    "page": {
+      "type": "object",
+      "required": ["printed_page_number", "sequence"],
+      "properties": {
+        "printed_page_number": { "type": ["string", "null"] },
+        "pdf_page_number": { "type": ["integer", "null"], "minimum": 1 },
+        "sequence": { "type": "integer", "minimum": 1 },
+        "chapter": { "type": ["string", "null"] },
+        "section": { "type": ["string", "null"] },
+        "title": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "transcription": {
+      "type": "object",
+      "required": ["raw_text", "normalized_text", "quality"],
+      "properties": {
+        "raw_text": { "type": "string" },
+        "normalized_text": { "type": "string" },
+        "quality": { "type": "string", "enum": ["verified", "needs_review", "low_confidence"] },
+        "review_notes": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "blocks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["order", "type", "content"],
+        "properties": {
+          "order": { "type": "integer", "minimum": 1 },
+          "type": {
+            "type": "string",
+            "enum": ["heading", "paragraph", "list", "example", "exercise", "formula", "table", "figure", "figure_caption", "footnote", "definition", "quote", "other"]
+          },
+          "content": { "type": "string" },
+          "label": { "type": ["string", "null"] },
+          "alt_text": { "type": ["string", "null"] },
+          "confidence": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+          "source_region": {
+            "type": ["object", "null"],
+            "properties": {
+              "x": { "type": "number" },
+              "y": { "type": "number" },
+              "width": { "type": "number" },
+              "height": { "type": "number" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "archive_path": { "type": ["string", "null"] },
+        "source_file": { "type": ["string", "null"] },
+        "checksum_sha256": { "type": ["string", "null"] },
+        "rights_status": { "type": "string", "enum": ["public_domain", "licensed", "user_authorized", "restricted", "unknown"] }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
