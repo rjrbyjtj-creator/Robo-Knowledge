@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://robo-knowledge.example/schemas/knowledge-document.schema.json",
+  "title": "Robo Knowledge Document Metadata",
+  "type": "object",
+  "required": ["id", "title", "subject", "language", "content_type", "source", "review", "tags"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "title": { "type": "string", "minLength": 2 },
+    "subject": { "type": "string", "minLength": 1 },
+    "grade": { "type": ["string", "null"] },
+    "language": { "type": "string", "enum": ["fa", "en", "ar", "other"] },
+    "content_type": { "type": "string", "enum": ["lesson", "reference", "faq", "guide", "exercise", "policy"] },
+    "source": {
+      "type": "object",
+      "required": ["title", "license"],
+      "properties": {
+        "title": { "type": "string" },
+        "url": { "type": ["string", "null"], "format": "uri" },
+        "publisher": { "type": ["string", "null"] },
+        "license": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "review": {
+      "type": "object",
+      "required": ["status", "reviewed_at"],
+      "properties": {
+        "status": { "type": "string", "enum": ["draft", "reviewed", "rejected"] },
+        "reviewed_at": { "type": ["string", "null"], "format": "date-time" },
+        "reviewer": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "tags": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+  },
+  "additionalProperties": false
+}
